@@ -1,0 +1,39 @@
+name: Monthly Finance Report
+
+on:
+  schedule:
+    # 매월 마지막 날 00:00 UTC (한국시간 09:00 AM)
+    - cron: '0 0 L * *'
+  workflow_dispatch:  # 수동 실행도 가능
+
+jobs:
+  generate-report:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install notion-client pandas matplotlib reportlab pillow
+      
+      - name: Generate monthly report
+        env:
+          NOTION_API_TOKEN: ${{ secrets.NOTION_API_TOKEN }}
+          NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+          GMAIL_EMAIL: ${{ secrets.GMAIL_EMAIL }}
+          GMAIL_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
+        run: python scripts/generate_report.py
+      
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: monthly-report
+          path: reports/
