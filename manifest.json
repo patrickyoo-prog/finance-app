@@ -1,0 +1,60 @@
+{
+  "name": "나의 가계부",
+  "short_name": "가계부",
+  "description": "아이폰에서 간편하게 가계부를 기록하는 앱",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#4F46E5",
+  "background_color": "#FFFFFF",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%234F46E5' width='192' height='192'/><text x='96' y='130' font-size='110' font-weight='bold' text-anchor='middle' fill='white'>₩</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect fill='%234F46E5' width='512' height='512'/><text x='256' y='360' font-size='290' font-weight='bold' text-anchor='middle' fill='white'>₩</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 540 720'><rect fill='%23F9FAFB' width='540' height='720'/><rect fill='%234F46E5' width='540' height='120'/><text x='270' y='70' font-size='48' font-weight='bold' text-anchor='middle' fill='white'>💰 나의 가계부</text></svg>",
+      "sizes": "540x720",
+      "type": "image/svg+xml",
+      "form_factor": "narrow"
+    }
+  ],
+  "categories": ["finance", "productivity"],
+  "shortcuts": [
+    {
+      "name": "지출 입력",
+      "short_name": "지출",
+      "description": "새로운 지출 항목을 입력합니다",
+      "url": "./?type=소비",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect fill='%23EF4444' width='96' height='96' rx='22'/><text x='48' y='68' font-size='60' font-weight='bold' text-anchor='middle' fill='white'>💸</text></svg>",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "수입 입력",
+      "short_name": "수입",
+      "description": "새로운 수입 항목을 입력합니다",
+      "url": "./?type=소득",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect fill='%2310B981' width='96' height='96' rx='22'/><text x='48' y='68' font-size='60' font-weight='bold' text-anchor='middle' fill='white'>💵</text></svg>",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="간편한 아이폰 가계부 입력 앱">
+    <meta name="theme-color" content="#4F46E5">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="나의 가계부">
+
+    <title>나의 가계부</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%234F46E5' width='192' height='192'/><text x='96' y='120' font-size='100' font-weight='bold' text-anchor='middle' fill='white'>₩</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect fill='%234F46E5' width='180' height='180' rx='40'/><text x='90' y='135' font-size='90' font-weight='bold' text-anchor='middle' fill='white'>₩</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💰 나의 가계부</h1>
+            <p>간단하게 기록하세요</p>
+        </header>
+
+        <main>
+            <form id="expenseForm">
+                <!-- 거래 유형 -->
+                <div class="form-group">
+                    <label for="type">거래 유형</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="type" value="소비" checked>
+                            <span>💸 지출</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="type" value="소득">
+                            <span>💵 수입</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 날짜 -->
+                <div class="form-group">
+                    <label for="date">날짜 *</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <!-- 금액 -->
+                <div class="form-group">
+                    <label for="amount">금액 (₩) *</label>
+                    <input type="number" id="amount" name="amount" placeholder="0" min="0" required>
+                </div>
+
+                <!-- 카테고리 -->
+                <div class="form-group">
+                    <label for="category">카테고리 *</label>
+                    <select id="category" name="category" required>
+                        <option value="">선택하세요</option>
+                        <option value="식비">🍽️ 식비</option>
+                        <option value="교통비">🚗 교통비</option>
+                        <option value="쇼핑">🛍️ 쇼핑</option>
+                        <option value="의료">🏥 의료</option>
+                        <option value="교육비">📚 교육비</option>
+                        <option value="취미">🎬 취미</option>
+                        <option value="마트 장보기">🛒 마트 장보기</option>
+                        <option value="기타">📌 기타</option>
+                    </select>
+                </div>
+
+                <!-- 메모 -->
+                <div class="form-group">
+                    <label for="memo">메모</label>
+                    <textarea id="memo" name="memo" placeholder="추가 정보를 입력하세요 (선택)"></textarea>
+                </div>
+
+                <!-- 입력 버튼 -->
+                <button type="submit" class="btn-submit">
+                    <span class="btn-text">💾 입력</span>
+                </button>
+
+                <!-- 상태 메시지 -->
+                <div id="statusMessage" class="status-message"></div>
+            </form>
+        </main>
+
+        <footer>
+            <p>최근 입력: <span id="lastEntry">없음</span></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
