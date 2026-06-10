@@ -102,7 +102,7 @@ async function handleFormSubmit(e) {
 async function sendToNotion(data) {
     // 4단계에서 API 엔드포인트를 설정합니다
     // 현재는 로컬 개발용 엔드포인트입니다
-    const apiUrl = 'https://vercel.com/060513-s-projects/finance-app';
+    const apiUrl = 'https://vercel.com/060513-s-projects/finance-app/api/expense';
 
     return fetch(apiUrl, {
         method: 'POST',
